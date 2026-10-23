@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Búfalas São João | Queijos Artesanais Premium</title>
+    <title>Búfalas São João | Queijos Artesanais, Turismo e Lazer</title>
     
     <!-- Fontes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@400;600;700;900&display=swap" rel="stylesheet">
     
     <!-- Ícones -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -43,195 +43,144 @@
 
         /* === BOTÕES === */
         .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 12px 24px;
-            border-radius: 8px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            border: none;
-            gap: 8px;
-            font-family: var(--fonte-texto);
-            font-size: 0.95rem;
+            display: inline-flex; align-items: center; justify-content: center;
+            padding: 12px 24px; border-radius: 8px; font-weight: 600;
+            transition: all 0.3s ease; cursor: pointer; border: none; gap: 8px;
+            font-family: var(--fonte-texto); font-size: 0.95rem;
         }
         .btn-amarelo { background-color: var(--amarelo-marca); color: var(--texto-escuro); }
-        .btn-amarelo:hover { background-color: #dfbe1e; }
+        .btn-amarelo:hover { background-color: #dfbe1e; transform: translateY(-2px); }
         .btn-preto { background-color: var(--texto-escuro); color: var(--branco); }
-        .btn-preto:hover { background-color: #333; }
+        .btn-preto:hover { background-color: #333; transform: translateY(-2px); }
         .btn-whatsapp { background-color: var(--whatsapp); color: var(--branco); }
-        .btn-whatsapp:hover { background-color: #128C7E; }
+        .btn-whatsapp:hover { background-color: #128C7E; transform: translateY(-2px); }
 
         /* === CABEÇALHO === */
         header {
-            background-color: var(--branco);
-            padding: 20px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+            background-color: var(--branco); padding: 20px 5%;
+            display: flex; justify-content: space-between; align-items: center;
+            position: sticky; top: 0; z-index: 1000;
             box-shadow: 0 4px 20px rgba(0,0,0,0.05);
         }
-        .logo img { height: 60px; }
-        nav { display: flex; gap: 30px; }
+        .logo img { height: 70px; }
+        nav { display: flex; gap: 25px; }
         nav a { font-weight: 600; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; transition: color 0.3s; }
         nav a:hover { color: var(--texto-claro); }
         
-        .carrinho-btn {
-            position: relative;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--texto-escuro);
-        }
+        .carrinho-btn { position: relative; font-size: 1.5rem; cursor: pointer; color: var(--texto-escuro); }
         .carrinho-contador {
-            position: absolute;
-            top: -5px; right: -10px;
-            background-color: var(--amarelo-marca);
-            color: var(--texto-escuro);
-            font-size: 0.8rem;
-            font-weight: 700;
-            width: 20px; height: 20px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            position: absolute; top: -5px; right: -10px;
+            background-color: var(--amarelo-marca); color: var(--texto-escuro);
+            font-size: 0.8rem; font-weight: 700; width: 20px; height: 20px;
+            border-radius: 50%; display: flex; justify-content: center; align-items: center;
         }
 
         /* === HERO (CAPA) === */
         .hero {
-            height: 80vh;
-            /* Fundo com gradiente e imagem real da fazenda/arco-iris */
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1552767059-ce182ead6c1b?q=80&w=1920&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: var(--branco);
-            padding: 0 20px;
+            height: 85vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1590405622837-2b1a5f2c4b7a?q=80&w=1920&auto=format&fit=crop');
+            background-size: cover; background-position: center;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            text-align: center; color: var(--branco); padding: 0 20px;
         }
         .hero h1 {
-            font-size: 4.5rem;
-            color: var(--branco);
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
-            max-width: 900px;
+            font-size: 5rem; color: var(--branco); margin-bottom: 10px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.8); max-width: 900px; font-weight: 900;
+            text-transform: uppercase; letter-spacing: 2px;
+        }
+        .hero h2 {
+            font-size: 2rem; color: var(--amarelo-marca); margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8); font-family: var(--fonte-texto); font-weight: 400;
         }
         .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            max-width: 600px;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+            font-size: 1.2rem; margin-bottom: 30px; max-width: 600px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
         }
 
         /* === SEÇÕES === */
         .secao { padding: 100px 5%; }
         .fundo-palha { background-color: var(--palha-fundo); }
         
-        .titulo-secao {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-        }
-        .subtitulo-secao {
-            text-align: center;
-            color: var(--texto-claro);
-            margin-bottom: 50px;
-            font-size: 1.1rem;
-        }
+        .titulo-secao { text-align: center; font-size: 2.8rem; margin-bottom: 15px; }
+        .subtitulo-secao { text-align: center; color: var(--texto-claro); margin-bottom: 50px; font-size: 1.1rem; }
 
         /* === GRID DE PRODUTOS === */
         .grid-produtos {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px; max-width: 1200px; margin: 0 auto;
         }
         .card-produto {
-            background: var(--branco);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s, box-shadow 0.3s;
-            display: flex;
-            flex-direction: column;
+            background: var(--branco); border-radius: 12px; overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: transform 0.3s, box-shadow 0.3s;
+            display: flex; flex-direction: column;
         }
-        .card-produto:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-        }
-        .img-produto {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            background-color: var(--palha-card);
-        }
-        .info-produto {
-            padding: 25px;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-        }
+        .card-produto:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+        .img-produto { width: 100%; height: 250px; object-fit: cover; background-color: var(--palha-card); }
+        .info-produto { padding: 25px; text-align: center; display: flex; flex-direction: column; flex-grow: 1; }
         .info-produto h3 { font-size: 1.4rem; margin-bottom: 10px; }
         .info-produto p { color: var(--texto-claro); font-size: 0.9rem; margin-bottom: 20px; flex-grow: 1; }
         .preco { font-size: 1.5rem; font-weight: 700; color: var(--texto-escuro); margin-bottom: 15px; }
 
-        /* === SOBRE E TURISMO === */
+        /* === GRIDS DUPLOS (SOBRE/TURISMO) === */
         .grid-duplo {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
+            display: grid; grid-template-columns: 1fr 1fr; gap: 50px;
+            align-items: center; max-width: 1200px; margin: 0 auto;
         }
         .img-destaque {
-            width: 100%;
-            height: 450px;
-            object-fit: cover;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            width: 100%; height: 500px; object-fit: cover;
+            border-radius: 12px; box-shadow: 0 15px 30px rgba(0,0,0,0.15);
         }
-        .texto-destaque h2 { font-size: 2.5rem; margin-bottom: 20px; }
+        .texto-destaque h2 { font-size: 2.8rem; margin-bottom: 20px; }
         .texto-destaque p { margin-bottom: 15px; font-size: 1.1rem; color: var(--texto-claro); }
+
+        /* === ESTRUTURA (ÍCONES) === */
+        .grid-icones {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px; max-width: 1000px; margin: 40px auto 0;
+        }
+        .icone-card {
+            text-align: center; padding: 30px 20px; background: var(--branco);
+            border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-bottom: 4px solid var(--amarelo-marca);
+        }
+        .icone-card i { font-size: 3rem; color: var(--amarelo-marca); margin-bottom: 15px; }
+        .icone-card h3 { font-size: 1.3rem; margin-bottom: 10px; }
+        .icone-card p { font-size: 0.95rem; color: var(--texto-claro); }
+
+        /* === MITOS E VERDADES (ACCORDION) === */
+        .accordion { max-width: 800px; margin: 0 auto; }
+        .accordion-item {
+            background: var(--branco); margin-bottom: 15px; border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05); overflow: hidden;
+        }
+        .accordion-header {
+            padding: 20px; cursor: pointer; display: flex; justify-content: space-between;
+            align-items: center; font-weight: 600; font-size: 1.1rem;
+        }
+        .accordion-header:hover { background-color: #f9f9f9; }
+        .accordion-content {
+            max-height: 0; overflow: hidden; transition: max-height 0.3s ease;
+            padding: 0 20px; background-color: #fdfcfb; color: var(--texto-claro);
+        }
+        .accordion-item.ativo .accordion-content { padding: 20px; max-height: 200px; border-top: 1px solid #eee; }
+        .accordion-item.ativo .accordion-header i { transform: rotate(180deg); }
+        .accordion-header i { transition: transform 0.3s; }
 
         /* === CONTATO === */
         .contato-info { display: flex; flex-direction: column; gap: 20px; }
         .contato-info li { display: flex; align-items: center; gap: 15px; font-size: 1.1rem; font-weight: 500; }
         .contato-info i { color: var(--amarelo-marca); font-size: 1.5rem; }
-        .mapa iframe { width: 100%; height: 350px; border: 0; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .mapa iframe { width: 100%; height: 400px; border: 0; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
 
         /* === RODAPÉ === */
-        footer {
-            background-color: var(--texto-escuro);
-            color: var(--branco);
-            text-align: center;
-            padding: 40px 20px;
-            font-size: 0.9rem;
-        }
+        footer { background-color: var(--texto-escuro); color: var(--branco); text-align: center; padding: 40px 20px; font-size: 0.9rem; }
 
         /* === CARRINHO LATERAL (SIDEBAR) === */
-        .overlay-carrinho {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.6);
-            z-index: 2000;
-            display: none;
-        }
+        .overlay-carrinho { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 2000; display: none; }
         .sidebar-carrinho {
             position: fixed; top: 0; right: -400px; width: 100%; max-width: 400px; height: 100%;
-            background: var(--branco);
-            z-index: 2001;
-            box-shadow: -5px 0 20px rgba(0,0,0,0.1);
-            transition: right 0.4s ease;
-            display: flex; flex-direction: column;
-            padding: 30px;
+            background: var(--branco); z-index: 2001; box-shadow: -5px 0 20px rgba(0,0,0,0.1);
+            transition: right 0.4s ease; display: flex; flex-direction: column; padding: 30px;
         }
         .sidebar-carrinho.aberto { right: 0; }
         .sidebar-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 2px solid var(--palha-card); padding-bottom: 15px; }
@@ -242,18 +191,15 @@
         .item-carrinho h4 { font-size: 1rem; margin-bottom: 5px; }
         .item-carrinho p { font-size: 0.9rem; color: var(--texto-claro); }
         .btn-remover { background: none; border: none; color: #ff4d4d; cursor: pointer; font-size: 1.2rem; }
-        
         .carrinho-total { font-size: 1.2rem; font-weight: 700; display: flex; justify-content: space-between; margin-bottom: 20px; border-top: 2px solid var(--palha-card); padding-top: 15px; }
-        
         .form-finalizar { display: flex; flex-direction: column; gap: 10px; }
-        .form-finalizar input, .form-finalizar select {
-            width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px; font-family: var(--fonte-texto);
-        }
+        .form-finalizar input, .form-finalizar select { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px; font-family: var(--fonte-texto); }
 
         /* RESPONSIVIDADE */
         @media (max-width: 900px) {
             .grid-duplo { grid-template-columns: 1fr; }
             .hero h1 { font-size: 3rem; }
+            .hero h2 { font-size: 1.5rem; }
             header { flex-direction: column; gap: 15px; }
             nav { flex-wrap: wrap; justify-content: center; }
         }
@@ -261,6 +207,7 @@
             .hero h1 { font-size: 2.2rem; }
             .secao { padding: 60px 5%; }
             .titulo-secao { font-size: 2rem; }
+            .img-destaque { height: 300px; }
         }
     </style>
 </head>
@@ -276,7 +223,6 @@
             <span class="fechar-carrinho" onclick="toggleCarrinho()">&times;</span>
         </div>
         <div class="lista-carrinho" id="lista-carrinho">
-            <!-- Itens serão inseridos aqui via JS -->
             <p style="text-align:center; color:#888; margin-top:20px;">Seu carrinho está vazio.</p>
         </div>
         
@@ -301,14 +247,13 @@
     <!-- Header -->
     <header>
         <a href="#" class="logo">
-            <!-- Substitua pelo link real da sua logo se tiver hospedada -->
-            <img src="logo.png" alt="Búfalas São João" onerror="this.src='https://via.placeholder.com/150x60/F2D027/000000?text=BUFALAS'">
+            <img src="logo.png" alt="Búfalas São João" onerror="this.src='https://via.placeholder.com/200x70/F2D027/000000?text=BUFALAS+SAO+JOAO'">
         </a>
         <nav>
             <a href="#sobre">Sobre</a>
-            <a href="#produtos">Queijos</a>
-            <a href="#doces">Doces</a>
+            <a href="#produtos">Loja</a>
             <a href="#turismo">Turismo</a>
+            <a href="#mitos">Mitos e Verdades</a>
             <a href="#contato">Contato</a>
         </nav>
         <div class="carrinho-btn" onclick="toggleCarrinho()">
@@ -317,11 +262,12 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- HERO (CAPA) -->
     <section class="hero">
-        <h1>Sabor Artesanal Direto da Fazenda</h1>
-        <p>Descubra o verdadeiro sabor do leite de búfala A2A2. Queijos premiados, doces e turismo rural em Paraguaçu Paulista.</p>
-        <a href="#produtos" class="btn btn-amarelo" style="font-size: 1.1rem; padding: 15px 40px;">Conheça Nossos Produtos</a>
+        <h1>Búfalas São João</h1>
+        <h2>O Verdadeiro Sabor da Mantiqueira</h2>
+        <p>Queijos artesanais premiados, turismo rural e lazer para toda a família. Venha nos visitar em Paraguaçu Paulista!</p>
+        <a href="#produtos" class="btn btn-amarelo" style="font-size: 1.1rem; padding: 15px 40px;">Comprar Agora</a>
     </section>
 
     <!-- Seção Sobre -->
@@ -336,49 +282,97 @@
                     <span>Queijo Frescal e Iogurte Premiados</span>
                 </div>
             </div>
-            <!-- Imagem ilustrativa de búfala no campo -->
+            <!-- FOTO DA BÚFALA -->
             <img src="https://images.unsplash.com/photo-1590405622837-2b1a5f2c4b7a?q=80&w=800&auto=format&fit=crop" alt="Búfala no campo" class="img-destaque">
         </div>
     </section>
 
-    <!-- Seção de Produtos (Queijos) -->
+    <!-- Seção de Produtos (Loja) -->
     <section id="produtos" class="secao">
-        <h2 class="titulo-secao">Queijos Artesanais</h2>
-        <p class="subtitulo-secao">100% leite de búfala, sem conservantes.</p>
-        
-        <div class="grid-produtos" id="grid-queijos">
+        <h2 class="titulo-secao">Nossa Loja Artesanal</h2>
+        <p class="subtitulo-secao">Queijos e doces feitos com 100% leite de búfala.</p>
+        <div class="grid-produtos" id="grid-produtos">
             <!-- Produtos inseridos via JS -->
         </div>
     </section>
 
-    <!-- Seção de Doces -->
-    <section id="doces" class="secao fundo-palha">
-        <h2 class="titulo-secao">Delícias Artesanais</h2>
-        <p class="subtitulo-secao">Doces caseiros e bolos feitos com carinho.</p>
-        
-        <div class="grid-produtos" id="grid-doces">
-            <!-- Produtos inseridos via JS -->
-        </div>
-    </section>
-
-    <!-- Seção de Turismo -->
-    <section id="turismo" class="secao">
-        <h2 class="titulo-secao">Viva a Experiência no Campo</h2>
-        <p class="subtitulo-secao">Visitas guiadas, café da manhã rural e lazer para toda a família.</p>
-        
+    <!-- Seção de Turismo e Passeios -->
+    <section id="turismo" class="secao fundo-palha">
         <div class="grid-duplo">
-            <div class="texto-destaque">
-                <h3 style="font-size: 2rem; margin-bottom: 15px;">Café da Manhã Rural</h3>
-                <p>Domingos e feriados, das 7h30 às 11h30. Venha saborear pães de queijo quentinhos, bolos caseiros e o melhor café fresco, com vista para a nossa fazenda.</p>
-                <a href="https://wa.me/5518996438262?text=Ol%C3%A1!%20Gostaria%20de%20reservar%20o%20Caf%C3%A9%20da%20Manh%C3%A3.%20Meu%20nome%20%C3%A9:%20" target="_blank" class="btn btn-preto mt-20" style="margin-top: 20px;">Reservar pelo WhatsApp</a>
+            <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=800&auto=format&fit=crop" alt="Café da manhã e passeio" class="img-destaque" style="order: 2;">
+            <div class="texto-destaque" style="order: 1;">
+                <h2>Passeios com as Búfalas</h2>
+                <p>Venha viver uma experiência inesquecível nos finais de semana! Oferecemos passeios guiados para conhecer de perto as nossas búfalas e a rotina da fazenda.</p>
+                <p>Aproveite também o nosso delicioso café da manhã rural, com pães de queijo, bolos e o melhor café fresco.</p>
+                <a href="https://wa.me/5518996438262?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20passeio%20com%20as%20b%C3%BAfalas.%0A%0A*Nome:*%20%0A*Data:*%20%0A*Quantidade%20de%20Pessoas:*%20" target="_blank" class="btn btn-preto" style="margin-top: 20px;">Agendar Passeio</a>
             </div>
-            <!-- Imagem ilustrativa de café da manhã -->
-            <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=800&auto=format&fit=crop" alt="Café da manhã rural" class="img-destaque">
+        </div>
+    </section>
+
+    <!-- Seção de Infraestrutura -->
+    <section class="secao">
+        <h2 class="titulo-secao">Nossa Estrutura</h2>
+        <p class="subtitulo-secao">Tudo o que você precisa para um dia perfeito no campo.</p>
+        
+        <div class="grid-icones">
+            <div class="icone-card">
+                <i class="fas fa-beer"></i>
+                <h3>Bebidas</h3>
+                <p>Cervejas geladas, sucos naturais e refrigerantes para acompanhar sua refeição.</p>
+            </div>
+            <div class="icone-card">
+                <i class="fas fa-parking"></i>
+                <h3>Estacionamento Amplo</h3>
+                <p>Espaço seguro e gratuito para todos os nossos visitantes.</p>
+            </div>
+            <div class="icone-card">
+                <i class="fas fa-restroom"></i>
+                <h3>Banheiros</h3>
+                <p>Instalações limpas, confortáveis e acessíveis.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Mitos e Verdades -->
+    <section id="mitos" class="secao fundo-palha">
+        <h2 class="titulo-secao">Mitos e Verdades</h2>
+        <p class="subtitulo-secao">Tire suas dúvidas sobre o leite de búfala.</p>
+        
+        <div class="accordion">
+            <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>O leite de búfala tem mais gordura e por isso é menos saudável?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="accordion-content">
+                    <p><strong>MITO.</strong> O leite de búfala realmente possui um teor de gordura ligeiramente maior que o leite de vaca, mas isso significa mais cremosidade e sabor. Além disso, ele é rico em cálcio, proteínas e possui a proteína A2A2, que é de mais fácil digestão para muitas pessoas.</p>
+                </div>
+            </div>
+            
+            <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>O leite de búfala pode ser consumido por pessoas com intolerância?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="accordion-content">
+                    <p><strong>VERDADE (com ressalvas).</strong> Por conter a proteína A2A2, ele costuma ser mais bem tolerado do que o leite de vaca comum (que tem a proteína A1). No entanto, ele contém lactose, portanto, pessoas com intolerância severa à lactose devem consumir com moderação ou evitar.</p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>A mozzarella de búfala é a mesma vendida em supermercados comuns?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="accordion-content">
+                    <p><strong>MITO.</strong> A verdadeira Mozzarella di Bufala é feita exclusivamente com leite de búfala. Ela tem textura mais firme, sabor levemente ácido e muito mais cremosidade. A mozzarella comum é feita com leite de vaca e tem sabor e textura diferentes.</p>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Seção de Contato -->
-    <section id="contato" class="secao fundo-palha">
+    <section id="contato" class="secao">
         <h2 class="titulo-secao">Fale Conosco</h2>
         <div class="grid-duplo">
             <ul class="contato-info">
@@ -400,39 +394,27 @@
         <p>www.bufalassaojoao.com.br</p>
     </footer>
 
-    <!-- JavaScript (Lógica do Carrinho e Envio para WhatsApp) -->
+    <!-- JavaScript -->
     <script>
         // Catálogo de Produtos
         const produtos = [
-            // Queijos
-            { id: 1, nome: "Queijo Fresco", preco: 35.00, categoria: "queijos", img: "https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?q=80&w=600&auto=format&fit=crop", desc: "Macio e leve, perfeito para o café da manhã." },
-            { id: 2, nome: "Mozzarella", preco: 45.00, categoria: "queijos", img: "https://images.unsplash.com/photo-1621263764624-3a3b1f3f6a1a?q=80&w=600&auto=format&fit=crop", desc: "Elástica e saborosa, ideal para tábuas e pizzas." },
-            { id: 3, nome: "Burrata", preco: 50.00, categoria: "queijos", img: "https://images.unsplash.com/photo-1625938145744-e380515bfd1f?q=80&w=600&auto=format&fit=crop", desc: "Cremosa por dentro, deliciosa com tomates." },
-            { id: 4, nome: "Parmesão", preco: 55.00, categoria: "queijos", img: "https://images.unsplash.com/photo-1589881133595-3f5f2b2c9a0a?q=80&w=600&auto=format&fit=crop", desc: "Curado, intenso e perfeito para ralar." },
-            { id: 5, nome: "Meia Cura", preco: 42.00, categoria: "queijos", img: "https://images.unsplash.com/photo-1552767059-ce182ead6c1b?q=80&w=600&auto=format&fit=crop", desc: "Equilíbrio perfeito entre maciez e sabor." },
-            { id: 6, nome: "Manteiga Artesanal", preco: 25.00, categoria: "queijos", img: "https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?q=80&w=600&auto=format&fit=crop", desc: "Pura e com sabor inconfundível." },
-            
-            // Doces
-            { id: 7, nome: "Doce de Leite", preco: 25.00, categoria: "doces", img: "https://images.unsplash.com/photo-1625938145744-e380515bfd1f?q=80&w=600&auto=format&fit=crop", desc: "Artesanal, cremoso e irresistível." },
-            { id: 8, nome: "Doce de Abóbora", preco: 22.00, categoria: "doces", img: "https://images.unsplash.com/photo-1606312619070-d48b4c652a52?q=80&w=600&auto=format&fit=crop", desc: "Pedaço, feito com carinho." },
-            { id: 9, nome: "Goiabada Cremosa", preco: 22.00, categoria: "doces", img: "https://images.unsplash.com/photo-1559598467-f8b76c8155d0?q=80&w=600&auto=format&fit=crop", desc: "Perfeita para acompanhar queijos." },
-            { id: 10, nome: "Mel Puro (250ml)", preco: 20.00, categoria: "doces", img: "https://images.unsplash.com/photo-1587049352846-4a222e784d38?q=80&w=600&auto=format&fit=crop", desc: "Direto do nosso sítio." },
-            { id: 11, nome: "Iogurte Natural", preco: 15.00, categoria: "doces", img: "https://images.unsplash.com/photo-1488477181946-6428a0291777?q=80&w=600&auto=format&fit=crop", desc: "Cremoso e saudável." }
+            { id: 1, nome: "Queijo Fresco", preco: 35.00, img: "https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?q=80&w=600&auto=format&fit=crop", desc: "Macio e leve, perfeito para o café da manhã." },
+            { id: 2, nome: "Mozzarella de Búfala", preco: 45.00, img: "https://images.unsplash.com/photo-1621263764624-3a3b1f3f6a1a?q=80&w=600&auto=format&fit=crop", desc: "Elástica e saborosa, ideal para tábuas e pizzas." },
+            { id: 3, nome: "Burrata", preco: 50.00, img: "https://images.unsplash.com/photo-1625938145744-e380515bfd1f?q=80&w=600&auto=format&fit=crop", desc: "Cremosa por dentro, deliciosa com tomates." },
+            { id: 4, nome: "Parmesão", preco: 55.00, img: "https://images.unsplash.com/photo-1589881133595-3f5f2b2c9a0a?q=80&w=600&auto=format&fit=crop", desc: "Curado, intenso e perfeito para ralar." },
+            { id: 5, nome: "Doce de Leite", preco: 25.00, img: "https://images.unsplash.com/photo-1625938145744-e380515bfd1f?q=80&w=600&auto=format&fit=crop", desc: "Artesanal, cremoso e irresistível." },
+            { id: 6, nome: "Iogurte Natural", preco: 15.00, img: "https://images.unsplash.com/photo-1488477181946-6428a0291777?q=80&w=600&auto=format&fit=crop", desc: "Cremoso e saudável." }
         ];
 
-        // Carrinho
         let carrinho = [];
 
         // Renderizar Produtos
         function renderizarProdutos() {
-            const gridQueijos = document.getElementById('grid-queijos');
-            const gridDoces = document.getElementById('grid-doces');
-            
-            gridQueijos.innerHTML = '';
-            gridDoces.innerHTML = '';
+            const grid = document.getElementById('grid-produtos');
+            grid.innerHTML = '';
 
             produtos.forEach(prod => {
-                const cardHTML = `
+                grid.innerHTML += `
                     <div class="card-produto">
                         <img src="${prod.img}" alt="${prod.nome}" class="img-produto">
                         <div class="info-produto">
@@ -445,12 +427,6 @@
                         </div>
                     </div>
                 `;
-
-                if (prod.categoria === 'queijos') {
-                    gridQueijos.innerHTML += cardHTML;
-                } else {
-                    gridDoces.innerHTML += cardHTML;
-                }
             });
         }
 
@@ -466,7 +442,7 @@
             }
 
             atualizarCarrinho();
-            abrirCarrinho(); // Abre o carrinho automaticamente ao adicionar
+            abrirCarrinho();
         }
 
         // Remover Item
@@ -475,7 +451,7 @@
             atualizarCarrinho();
         }
 
-        // Atualizar Interface do Carrinho
+        // Atualizar Carrinho
         function atualizarCarrinho() {
             const lista = document.getElementById('lista-carrinho');
             const contador = document.getElementById('contador-carrinho');
@@ -511,24 +487,20 @@
         function toggleCarrinho() {
             const sidebar = document.getElementById('sidebar-carrinho');
             const overlay = document.querySelector('.overlay-carrinho');
-            
+            sidebar.classList.toggle('aberto');
             if (sidebar.classList.contains('aberto')) {
-                sidebar.classList.remove('aberto');
-                overlay.style.display = 'none';
-            } else {
-                sidebar.classList.add('aberto');
                 overlay.style.display = 'block';
+            } else {
+                overlay.style.display = 'none';
             }
         }
 
         function abrirCarrinho() {
-            const sidebar = document.getElementById('sidebar-carrinho');
-            const overlay = document.querySelector('.overlay-carrinho');
-            sidebar.classList.add('aberto');
-            overlay.style.display = 'block';
+            document.getElementById('sidebar-carrinho').classList.add('aberto');
+            document.querySelector('.overlay-carrinho').style.display = 'block';
         }
 
-        // Finalizar Pedido (Enviar para o WhatsApp)
+        // Finalizar Pedido (WhatsApp)
         document.getElementById('form-finalizar').addEventListener('submit', function(e) {
             e.preventDefault();
 
@@ -548,7 +520,6 @@
             mensagem += `*ITENS DO PEDIDO:*%0A`;
 
             let total = 0;
-
             carrinho.forEach(item => {
                 const subtotal = item.preco * item.quantidade;
                 total += subtotal;
@@ -556,13 +527,23 @@
             });
 
             mensagem += `%0A*TOTAL DO PEDIDO:* R$ ${total.toFixed(2).replace('.', ',')}%0A`;
-            mensagem += `%0A*Frete a combinar.*`;
 
-            // Número da loja
-            const telefone = "5518996438262";
-            
-            window.open(`https://wa.me/${telefone}?text=${mensagem}`, '_blank');
+            window.open(`https://wa.me/5518996438262?text=${mensagem}`, '_blank');
         });
+
+        // Lógica do Accordion (Mitos e Verdades)
+        function toggleAccordion(element) {
+            const item = element.parentElement;
+            const isAtivo = item.classList.contains('ativo');
+            
+            // Fecha todos
+            document.querySelectorAll('.accordion-item').forEach(i => i.classList.remove('ativo'));
+            
+            // Abre o clicado se não estava aberto
+            if (!isAtivo) {
+                item.classList.add('ativo');
+            }
+        }
 
         // Inicializar
         renderizarProdutos();
