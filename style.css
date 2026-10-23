@@ -1,293 +1,97 @@
 /* =========================================
-   RESET E CONFIGURAÇÕES GERAIS
+   ESTILOS DO MODAL DE PEDIDO (JANELINHA)
    ========================================= */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-:root {
-    --cor-amarelo: #F2D027;
-    --cor-palha: #EFE8D8;
-    --cor-palha-escura: #DFD5C1;
-    --cor-preto: #1A1A1A;
-    --cor-texto: #333333;
-    --cor-branco: #FFFFFF;
-    --cor-whatsapp: #25D366;
-}
-
-body {
-    font-family: 'Poppins', sans-serif;
-    color: var(--cor-texto);
-    background-color: var(--cor-branco);
-    line-height: 1.6;
-    overflow-x: hidden;
-}
-
-h1, h2, h3 {
-    font-family: 'Playfair Display', serif;
-    color: var(--cor-preto);
+.preco-produto {
+    font-size: 1.2rem;
     font-weight: 700;
+    color: var(--cor-preto);
+    margin-bottom: 10px;
 }
 
-a { text-decoration: none; color: inherit; }
-ul { list-style: none; }
-
-/* Utilitários */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-    width: 100%;
-}
-
-.secao-padrao { padding: 80px 0; }
-.fundo-palha { background-color: var(--cor-palha); }
-.fundo-amarelo { background-color: var(--cor-amarelo); }
-.text-center { text-align: center; }
-.mt-20 { margin-top: 20px; display: inline-block;}
-
-.titulo-secao { font-size: 2.5rem; margin-bottom: 15px; }
-
-.cabecalho-secao {
-    text-align: center;
-    margin-bottom: 50px;
-}
-
-.cabecalho-secao p { font-size: 1.1rem; color: #555; }
-
-/* Botões */
-.botao {
-    display: inline-block;
-    padding: 12px 30px;
-    border-radius: 50px;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    text-align: center;
-    cursor: pointer;
-    border: none;
-}
-
-.botao-amarelo { background-color: var(--cor-amarelo); color: var(--cor-preto); }
-.botao-amarelo:hover { background-color: #d4b31f; transform: translateY(-2px); }
-
-.botao-preto { background-color: var(--cor-preto); color: var(--cor-branco); }
-.botao-preto:hover { background-color: #333; transform: translateY(-2px); }
-
-.botao-whatsapp {
-    background-color: var(--cor-whatsapp);
-    color: var(--cor-branco);
-    display: inline-flex;
+.modal-overlay {
+    display: none; /* Fica oculto por padrão */
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 2000;
     align-items: center;
     justify-content: center;
-    gap: 8px;
+    padding: 20px;
 }
-.botao-whatsapp:hover { background-color: #128C7E; }
 
-.btn-whatsapp-flutuante {
-    position: fixed; bottom: 30px; right: 30px;
-    background-color: var(--cor-whatsapp); color: var(--cor-branco);
-    width: 60px; height: 60px; border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 35px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    z-index: 1000; transition: transform 0.3s;
-}
-.btn-whatsapp-flutuante:hover { transform: scale(1.1); color: var(--cor-branco); }
-
-/* =========================================
-   HEADER
-   ========================================= */
-.topo-site {
+.modal-conteudo {
     background-color: var(--cor-branco);
-    padding: 15px 0;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    position: sticky; top: 0; z-index: 999;
-}
-
-.topo-conteudo { display: flex; justify-content: space-between; align-items: center; }
-.logo-img { height: 60px; width: auto; border-radius: 5px; }
-.menu-navegacao { display: flex; gap: 30px; }
-.menu-navegacao a { font-weight: 600; font-size: 0.95rem; transition: color 0.3s; }
-.menu-navegacao a:hover { color: #b89b2a; }
-
-/* =========================================
-   HERO (CAPA)
-   ========================================= */
-.capa-principal {
-    background-size: cover;
-    background-position: center;
-    padding: 120px 0;
-    text-align: center;
-    color: var(--cor-branco);
-}
-
-.capa-conteudo h1 {
-    font-size: 4rem;
-    color: var(--cor-branco);
-    margin-bottom: 20px;
-    letter-spacing: 2px;
-}
-
-.capa-conteudo p {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
-    max-width: 700px;
-    margin-left: auto; margin-right: auto;
-}
-
-/* =========================================
-   IMAGENS REAIS
-   ========================================= */
-.foto-real {
+    padding: 30px;
+    border-radius: 12px;
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 12px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    max-width: 500px;
+    position: relative;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
 
-/* =========================================
-   SEÇÃO SOBRE E CONTATO (GRID)
-   ========================================= */
-.grid-duas-colunas {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 50px;
-    align-items: center;
+.fechar-modal {
+    position: absolute;
+    top: 15px; right: 20px;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--cor-preto);
 }
 
-.texto-sobre p { margin-bottom: 15px; font-size: 1.05rem; }
-
-.selo-premio {
-    display: inline-flex; align-items: center; gap: 15px;
-    background-color: var(--cor-branco); padding: 15px 20px;
-    border-radius: 8px; margin-top: 15px;
-    border-left: 4px solid var(--cor-amarelo); font-weight: 600;
-}
-.selo-premio i { color: #D4AF37; font-size: 1.5rem; }
-
-.imagem-destaque { height: 400px; }
-
-/* =========================================
-   CARDS DE PRODUTOS
-   ========================================= */
-.grade-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-}
-
-.card-produto {
-    background-color: var(--cor-branco);
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-    display: flex; flex-direction: column;
-    transition: transform 0.3s;
-}
-
-.card-produto:hover { transform: translateY(-5px); }
-
-.foto-produto {
-    width: 100%; height: 200px;
-    overflow: hidden;
-}
-
-.foto-produto img {
-    width: 100%; height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s;
-}
-
-.card-produto:hover .foto-produto img { transform: scale(1.05); }
-
-.info-produto {
-    padding: 20px; text-align: center;
-    display: flex; flex-direction: column; flex-grow: 1;
-}
-
-.info-produto h3 { font-size: 1.3rem; margin-bottom: 10px; }
-.info-produto p { font-size: 0.9rem; color: #666; margin-bottom: 20px; flex-grow: 1; }
-
-.botao-whatsapp { width: 100%; padding: 10px; border-radius: 8px; font-size: 0.95rem; }
-
-/* =========================================
-   BANNER PROMOÇÃO
-   ========================================= */
-.banner-promocao {
-    background-size: cover;
-    background-position: center;
-    padding: 40px;
-    border-radius: 12px;
+.modal-conteudo h2 {
+    margin-bottom: 20px;
+    font-size: 1.8rem;
     text-align: center;
-    margin-bottom: 50px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    border: 2px dashed var(--cor-palha-escura);
+    border-bottom: 2px solid var(--cor-amarelo);
+    padding-bottom: 10px;
 }
 
-.banner-promocao h3 { font-size: 1.8rem; margin-bottom: 10px; }
-.banner-promocao p { margin-bottom: 15px; }
-
-/* =========================================
-   EXPERIÊNCIAS (TURISMO)
-   ========================================= */
-.bloco-experiencia {
-    background-color: var(--cor-branco);
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+.grupo-input {
+    margin-bottom: 15px;
     display: flex;
     flex-direction: column;
 }
 
-.bloco-experiencia img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
+.grupo-input label {
+    font-weight: 600;
+    margin-bottom: 5px;
+    font-size: 0.95rem;
 }
 
-.texto-exp {
-    padding: 30px;
-    text-align: center;
+.grupo-input input, .grupo-input select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
 }
 
-.texto-exp h3 { font-size: 1.5rem; margin-bottom: 10px; }
-.texto-exp i { color: #b89b2a; margin-right: 5px; }
-
-/* =========================================
-   CONTATO
-   ========================================= */
-.lista-contato li {
-    display: flex; align-items: flex-start; gap: 15px;
-    margin-bottom: 15px; font-size: 1.05rem; font-weight: 500;
-}
-.lista-contato i { color: var(--cor-preto); font-size: 1.2rem; margin-top: 4px; }
-
-.mapa-container {
-    border-radius: 12px; overflow: hidden;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1); height: 100%;
+.linha-dupla {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
 }
 
-/* =========================================
-   RODAPÉ
-   ========================================= */
-.rodape {
-    background-color: var(--cor-preto); color: var(--cor-palha);
-    text-align: center; padding: 25px 0; font-size: 0.9rem;
+.resumo-valores {
+    background-color: var(--cor-palha);
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    text-align: right;
 }
 
-/* =========================================
-   RESPONSIVIDADE
-   ========================================= */
-@media (max-width: 768px) {
-    .topo-conteudo { flex-direction: column; gap: 15px; }
-    .menu-navegacao { flex-wrap: wrap; justify-content: center; gap: 15px; }
-    .capa-conteudo h1 { font-size: 2.5rem; }
-    .capa-principal { padding: 80px 0; }
-    .secao-padrao { padding: 50px 0; }
-    .grid-duas-colunas { grid-template-columns: 1fr; }
-    .banner-promocao { padding: 20px; }
-    .btn-whatsapp-flutuante { width: 50px; height: 50px; font-size: 30px; bottom: 20px; right: 20px; }
-    .imagem-destaque { height: 300px; }
+.resumo-valores p {
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+
+.resumo-valores h3 {
+    font-size: 1.4rem;
+    color: var(--cor-preto);
+}
+
+.resumo-valores span {
+    color: var(--cor-whatsapp);
+    font-weight: 700;
 }
