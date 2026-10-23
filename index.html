@@ -1,248 +1,409 @@
-<!DOCTYPE html>
+\<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Búfalas São João</title>
-    <!-- Fonte do Google -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <!-- Ícones -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Búfalas São João | Queijos Artesanais e Turismo Rural</title>
     
+    <!-- Fontes e Ícones -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- CSS EMBUTIDO -->
     <style>
-        /* RESET E CORES BÁSICAS */
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        /* RESET */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        /* CORES DA MARCA */
         :root {
             --amarelo: #F2D027;
             --palha: #EFE8D8;
+            --palha-escura: #DFD5C1;
             --preto: #1A1A1A;
+            --texto: #333333;
             --branco: #FFFFFF;
-            --verde-whats: #25D366;
+            --whatsapp: #25D366;
         }
-        body { background-color: var(--branco); color: var(--preto); overflow-x: hidden; }
 
-        /* TOPO / CABEÇALHO */
-        header {
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--texto);
             background-color: var(--branco);
-            padding: 15px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        .logo { height: 60px; }
-        .menu a { text-decoration: none; color: var(--preto); font-weight: 600; margin-left: 20px; }
-
-        /* CAPA PRINCIPAL */
-        .capa {
-            background-color: var(--palha);
-            padding: 80px 20px;
-            text-align: center;
-        }
-        .capa h1 { font-size: 2.5rem; margin-bottom: 15px; color: var(--preto); }
-        .capa p { font-size: 1.1rem; margin-bottom: 25px; }
-        .btn-amarelo {
-            background-color: var(--amarelo);
-            color: var(--preto);
-            padding: 12px 30px;
-            text-decoration: none;
-            font-weight: 600;
-            border-radius: 30px;
-            display: inline-block;
+            line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        /* SEÇÃO DE PRODUTOS */
-        .secao { padding: 60px 20px; max-width: 1200px; margin: 0 auto; }
-        .secao-amarela { background-color: var(--amarelo); }
-        .titulo-secao { text-align: center; font-size: 2rem; margin-bottom: 40px; }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--preto); font-weight: 700; }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
 
-        .grade-produtos {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-
-        .card {
-            background-color: var(--branco);
-            border-radius: 10px;
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        .card h3 { font-size: 1.3rem; margin-bottom: 10px; }
-        .card p { font-size: 1rem; margin-bottom: 15px; font-weight: 600; color: #444; }
+        /* LAYOUT E UTILITÁRIOS */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; width: 100%; }
+        .secao-padrao { padding: 80px 0; }
+        .fundo-palha { background-color: var(--palha); }
+        .fundo-amarelo { background-color: var(--amarelo); }
+        .text-center { text-align: center; }
+        .mt-20 { margin-top: 20px; display: inline-block; }
         
-        .btn-whats {
-            background-color: var(--verde-whats);
-            color: var(--branco);
-            border: none;
-            padding: 10px;
-            border-radius: 5px;
-            font-weight: 600;
-            cursor: pointer;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 8px;
-        }
-        .btn-whats:hover { background-color: #128C7E; }
+        .titulo-secao { font-size: 2.5rem; margin-bottom: 15px; }
+        .cabecalho-secao { text-align: center; margin-bottom: 50px; }
+        .cabecalho-secao p { font-size: 1.1rem; color: #555; }
 
-        /* BOTÃO FLUTUANTE */
-        .botao-flutuante {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: var(--verde-whats);
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 30px;
-            text-decoration: none;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-            z-index: 1000;
-        }
+        /* BOTÕES */
+        .botao { display: inline-block; padding: 12px 30px; border-radius: 50px; font-weight: 600; transition: all 0.3s ease; text-align: center; cursor: pointer; border: none; }
+        .botao-amarelo { background-color: var(--amarelo); color: var(--preto); }
+        .botao-amarelo:hover { background-color: #d4b31f; transform: translateY(-2px); }
+        .botao-preto { background-color: var(--preto); color: var(--branco); }
+        .botao-preto:hover { background-color: #333; transform: translateY(-2px); }
+        
+        .botao-whatsapp { background-color: var(--whatsapp); color: var(--branco); display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 12px; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer; border: none; transition: background 0.3s; }
+        .botao-whatsapp:hover { background-color: #128C7E; }
+
+        /* WHATSAPP FLUTUANTE */
+        .btn-whatsapp-flutuante { position: fixed; bottom: 30px; right: 30px; background-color: var(--whatsapp); color: var(--branco); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 35px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 1000; transition: transform 0.3s; }
+        .btn-whatsapp-flutuante:hover { transform: scale(1.1); color: var(--branco); }
+
+        /* CABEÇALHO */
+        .topo-site { background-color: var(--branco); padding: 15px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 999; }
+        .topo-conteudo { display: flex; justify-content: space-between; align-items: center; }
+        .logo-img { height: 60px; width: auto; border-radius: 5px; }
+        .menu-navegacao { display: flex; gap: 30px; }
+        .menu-navegacao a { font-weight: 600; font-size: 0.95rem; transition: color 0.3s; }
+        .menu-navegacao a:hover { color: #b89b2a; }
+
+        /* CAPA PRINCIPAL (HERO) */
+        .capa-principal { background-size: cover; background-position: center; padding: 120px 0; text-align: center; color: var(--branco); }
+        .capa-conteudo h1 { font-size: 4rem; color: var(--branco); margin-bottom: 20px; letter-spacing: 2px; }
+        .capa-conteudo p { font-size: 1.2rem; margin-bottom: 30px; max-width: 700px; margin-left: auto; margin-right: auto; text-shadow: 1px 1px 3px rgba(0,0,0,0.5); }
+
+        /* SEÇÃO SOBRE */
+        .grid-duas-colunas { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+        .texto-sobre p { margin-bottom: 15px; font-size: 1.05rem; }
+        .selo-premio { display: inline-flex; align-items: center; gap: 15px; background-color: var(--branco); padding: 15px 20px; border-radius: 8px; margin-top: 15px; border-left: 4px solid var(--amarelo); font-weight: 600; }
+        .selo-premio i { color: #D4AF37; font-size: 1.5rem; }
+        .imagem-destaque { height: 400px; }
+        .foto-real { width: 100%; height: 100%; object-fit: cover; border-radius: 12px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+
+        /* CARDS DE PRODUTOS */
+        .grade-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+        .card-produto { background-color: var(--branco); border-radius: 12px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.08); display: flex; flex-direction: column; transition: transform 0.3s; }
+        .card-produto:hover { transform: translateY(-5px); }
+        .foto-produto { width: 100%; height: 200px; overflow: hidden; background-color: var(--palha-escura); }
+        .foto-produto img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
+        .card-produto:hover .foto-produto img { transform: scale(1.05); }
+        .info-produto { padding: 20px; text-align: center; display: flex; flex-direction: column; flex-grow: 1; }
+        .info-produto h3 { font-size: 1.3rem; margin-bottom: 5px; }
+        .info-produto p { font-size: 0.9rem; color: #666; margin-bottom: 15px; flex-grow: 1; }
+        .preco-produto { font-size: 1.2rem; font-weight: 700; color: var(--preto); margin-bottom: 15px; }
+
+        /* TURISMO / EXPERIÊNCIAS */
+        .bloco-experiencia { background-color: var(--branco); border-radius: 12px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); display: flex; flex-direction: column; }
+        .bloco-experiencia img { width: 100%; height: 250px; object-fit: cover; }
+        .texto-exp { padding: 30px; text-align: center; }
+        .texto-exp h3 { font-size: 1.5rem; margin-bottom: 10px; }
+        .texto-exp i { color: #b89b2a; margin-right: 5px; }
+
+        /* CONTATO */
+        .lista-contato li { display: flex; align-items: flex-start; gap: 15px; margin-bottom: 15px; font-size: 1.05rem; font-weight: 500; }
+        .lista-contato i { color: var(--preto); font-size: 1.2rem; margin-top: 4px; }
+        .mapa-container { border-radius: 12px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.1); height: 100%; min-height: 350px; }
 
         /* RODAPÉ */
-        footer { background-color: var(--preto); color: white; text-align: center; padding: 20px; margin-top: 40px; }
+        .rodape { background-color: var(--preto); color: var(--palha); text-align: center; padding: 25px 0; font-size: 0.9rem; }
 
-        /* JANELA DE PEDIDO (MODAL) */
-        .modal-fundo { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 2000; justify-content: center; align-items: center; }
-        .modal-caixa { background: white; padding: 25px; border-radius: 10px; width: 90%; max-width: 450px; position: relative; }
-        .fechar { position: absolute; top: 10px; right: 15px; font-size: 1.5rem; cursor: pointer; }
-        .modal-caixa h2 { margin-bottom: 15px; text-align: center; }
-        .campo { margin-bottom: 10px; display: flex; flex-direction: column; }
-        .campo label { font-size: 0.9rem; font-weight: 600; margin-bottom: 3px; }
-        .campo input, .campo select { padding: 8px; border: 1px solid #ccc; border-radius: 5px; font-size: 1rem; }
-        .linha-dupla { display: flex; gap: 10px; }
-        .linha-dupla .campo { flex: 1; }
-        .resumo { background: var(--palha); padding: 10px; border-radius: 5px; text-align: right; margin: 10px 0; font-weight: 600; }
-        .resumo span { color: var(--verde-whats); font-size: 1.2rem; }
+        /* MODAL DE PEDIDO */
+        .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.7); z-index: 2000; align-items: center; justify-content: center; padding: 20px; }
+        .modal-conteudo { background-color: var(--branco); padding: 30px; border-radius: 12px; width: 100%; max-width: 500px; position: relative; max-height: 90vh; overflow-y: auto; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+        .fechar-modal { position: absolute; top: 15px; right: 20px; font-size: 2rem; cursor: pointer; color: var(--preto); }
+        .modal-conteudo h2 { margin-bottom: 20px; font-size: 1.8rem; text-align: center; border-bottom: 2px solid var(--amarelo); padding-bottom: 10px; }
+        .grupo-input { margin-bottom: 15px; display: flex; flex-direction: column; }
+        .grupo-input label { font-weight: 600; margin-bottom: 5px; font-size: 0.95rem; }
+        .grupo-input input, .grupo-input select { padding: 10px; border: 1px solid #ccc; border-radius: 6px; font-family: 'Poppins', sans-serif; font-size: 1rem; }
+        .linha-dupla { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .resumo-valores { background-color: var(--palha); padding: 15px; border-radius: 8px; margin-bottom: 15px; text-align: right; }
+        .resumo-valores p { font-size: 1rem; margin-bottom: 5px; }
+        .resumo-valores h3 { font-size: 1.4rem; color: var(--preto); }
+        .resumo-valores span { color: var(--whatsapp); font-weight: 700; }
+
+        /* RESPONSIVIDADE (CELULAR) */
+        @media (max-width: 768px) {
+            .topo-conteudo { flex-direction: column; gap: 15px; }
+            .menu-navegacao { flex-wrap: wrap; justify-content: center; gap: 15px; }
+            .capa-conteudo h1 { font-size: 2.5rem; }
+            .capa-principal { padding: 80px 0; }
+            .secao-padrao { padding: 50px 0; }
+            .grid-duas-colunas { grid-template-columns: 1fr; }
+            .btn-whatsapp-flutuante { width: 50px; height: 50px; font-size: 30px; bottom: 20px; right: 20px; }
+            .imagem-destaque { height: 300px; }
+            .linha-dupla { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
 
-    <!-- Botão Flutuante Geral -->
-    <a href="https://wa.me/5518996438262" target="_blank" class="botao-flutuante"><i class="fab fa-whatsapp"></i></a>
+    <!-- Botão do WhatsApp Flutuante Geral -->
+    <a href="https://wa.me/5518996438262" target="_blank" class="btn-whatsapp-flutuante" aria-label="Falar no WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
     <!-- Cabeçalho -->
-    <header>
-        <img src="logo.png" alt="Logo" class="logo">
-        <nav class="menu">
-            <a href="#queijos">Queijos</a>
-            <a href="#doces">Doces</a>
-        </nav>
+    <header class="topo-site">
+        <div class="container topo-conteudo">
+            <a href="#" class="logo-link">
+                <!-- Certifique-se que o arquivo da imagem é logo.png -->
+                <img src="logo.png" alt="Búfalas São João" class="logo-img">
+            </a>
+            <nav class="menu-navegacao">
+                <a href="#sobre">Sobre</a>
+                <a href="#queijos">Queijos</a>
+                <a href="#doces">Doces & Loja</a>
+                <a href="#turismo">Turismo</a>
+                <a href="#contato">Contato</a>
+            </nav>
+        </div>
     </header>
 
-    <!-- Capa -->
-    <section class="capa">
-        <h1>SABORES FEITOS AQUI.</h1>
-        <p>Queijos artesanais e delícias direto do nosso sítio.</p>
-        <a href="#queijos" class="btn-amarelo">Ver Produtos</a>
-    </section>
-
-    <!-- Seção Queijos -->
-    <section id="queijos" class="secao">
-        <h2 class="titulo-secao">Nossos Queijos</h2>
-        <div class="grade-produtos">
-            
-            <!-- PRODUTO: Queijo Fresco -->
-            <div class="card">
-                <h3>Queijo Fresco</h3>
-                <p>R$ 35,00</p>
-                <!-- O botão chama a função JavaScript passando o nome e o preço -->
-                <button class="btn-whats" onclick="abrirPedido('Queijo Fresco', 35.00)"><i class="fab fa-whatsapp"></i> Pedir</button>
-            </div>
-
-            <!-- PRODUTO: Mozzarella -->
-            <div class="card">
-                <h3>Mozzarella</h3>
-                <p>R$ 45,00</p>
-                <button class="btn-whats" onclick="abrirPedido('Mozzarella', 45.00)"><i class="fab fa-whatsapp"></i> Pedir</button>
-            </div>
-
-            <!-- PRODUTO: Burrata -->
-            <div class="card">
-                <h3>Burrata</h3>
-                <p>R$ 50,00</p>
-                <button class="btn-whats" onclick="abrirPedido('Burrata', 50.00)"><i class="fab fa-whatsapp"></i> Pedir</button>
-            </div>
-
+    <!-- Capa Principal -->
+    <section class="capa-principal" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('queijo-fresco.jpg');">
+        <div class="container capa-conteudo">
+            <h1>SABORES FEITOS AQUI.</h1>
+            <p>Queijos artesanais, bolos caseiros e café fresco direto do nosso sítio para a sua mesa.</p>
+            <a href="#doces" class="botao botao-amarelo">Fazer Pedido Agora</a>
         </div>
     </section>
 
-    <!-- Seção Doces (Fundo Amarelo) -->
-    <section id="doces" class="secao secao-amarela">
-        <h2 class="titulo-secao">Doces Artesanais</h2>
-        <div class="grade-produtos">
+    <!-- Seção Sobre -->
+    <section id="sobre" class="secao-padrao fundo-palha">
+        <div class="container grid-duas-colunas">
+            <div class="texto-sobre">
+                <h2 class="titulo-secao">Natureza, Família e Sabor</h2>
+                <p>Em Paraguaçu Paulista, a <strong>Búfalas São João</strong> é um verdadeiro exemplo de paixão e propósito. Fundada em 2016, nasceu da descoberta do leite de búfala A2A2 como uma alternativa saudável e nutritiva.</p>
+                <p>Hoje, produzimos dezenas de produtos artesanais, entre queijos, iogurtes e doces, todos feitos com leite das búfalas criadas no próprio sítio.</p>
+                <div class="selo-premio">
+                    <i class="fas fa-trophy"></i>
+                    <span>Queijo Frescal e Iogurte Premiados</span>
+                </div>
+            </div>
+            <div class="imagem-destaque">
+                <!-- Certifique-se que o arquivo é fazenda.jpg -->
+                <img src="fazenda.jpg" alt="Búfala no campo" class="foto-real">
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Queijos -->
+    <section id="queijos" class="secao-padrao">
+        <div class="container">
+            <div class="cabecalho-secao">
+                <h2 class="titulo-secao">Nossos Queijos Artesanais</h2>
+                <p>Produzidos com leite 100% de búfala, sem conservantes.</p>
+            </div>
             
-            <!-- PRODUTO: Doce de Leite -->
-            <div class="card">
-                <h3>Doce de Leite</h3>
-                <p>R$ 25,00</p>
-                <button class="btn-whats" onclick="abrirPedido('Doce de Leite', 25.00)"><i class="fab fa-whatsapp"></i> Pedir</button>
+            <div class="grade-cards">
+                <!-- Queijo Fresco -->
+                <div class="card-produto">
+                    <div class="foto-produto"><img src="queijo-fresco.jpg" alt="Queijo Fresco"></div>
+                    <div class="info-produto">
+                        <h3>Queijo Fresco</h3>
+                        <p>Macio e leve, perfeito para o café da manhã.</p>
+                        <p class="preco-produto">R$ 35,00</p>
+                        <button onclick="abrirModal('Queijo Fresco', 35.00)" class="botao-whatsapp"><i class="fab fa-whatsapp"></i> Pedir</button>
+                    </div>
+                </div>
+                <!-- Mozzarella -->
+                <div class="card-produto">
+                    <div class="foto-produto"><img src="mozzarella.jpg" alt="Mozzarella"></div>
+                    <div class="info-produto">
+                        <h3>Mozzarella</h3>
+                        <p>Elástica e saborosa, ideal para tábuas e pizzas.</p>
+                        <p class="preco-produto">R$ 45,00</p>
+                        <button onclick="abrirModal('Mozzarella', 45.00)" class="botao-whatsapp"><i class="fab fa-whatsapp"></i> Pedir</button>
+                    </div>
+                </div>
+                <!-- Burrata -->
+                <div class="card-produto">
+                    <div class="foto-produto"><img src="burrata.jpg" alt="Burrata"></div>
+                    <div class="info-produto">
+                        <h3>Burrata</h3>
+                        <p>Cremosa por dentro, deliciosa com tomates.</p>
+                        <p class="preco-produto">R$ 50,00</p>
+                        <button onclick="abrirModal('Burrata', 50.00)" class="botao-whatsapp"><i class="fab fa-whatsapp"></i> Pedir</button>
+                    </div>
+                </div>
+                <!-- Coalho -->
+                <div class="card-produto">
+                    <div class="foto-produto"><img src="tábua-queijos.jpg" alt="Coalho"></div>
+                    <div class="info-produto">
+                        <h3>Coalho / Coalhada</h3>
+                        <p>Textura firme e sabor marcante.</p>
+                        <p class="preco-produto">R$ 30,00</p>
+                        <button onclick="abrirModal('Coalho', 30.00)" class="botao-whatsapp"><i class="fab fa-whatsapp"></i> Pedir</button>
+                    </div>
+                </div>
             </div>
+        </div>
+    </section>
 
-            <!-- PRODUTO: Goiabada -->
-            <div class="card">
-                <h3>Goiabada Cremosa</h3>
-                <p>R$ 22,00</p>
-                <button class="btn-whats" onclick="abrirPedido('Goiabada Cremosa', 22.00)"><i class="fab fa-whatsapp"></i> Pedir</button>
+    <!-- Seção Doces e Loja -->
+    <section id="doces" class="secao-padrao fundo-amarelo">
+        <div class="container">
+            <div class="cabecalho-secao">
+                <h2 class="titulo-secao">Loja & Delícias Artesanais</h2>
+                <p>Entregas sem pedido mínimo. Pagamento via Pix, Débito ou Crédito.</p>
             </div>
+            
+            <div class="grade-cards">
+                <!-- Doce de Abóbora -->
+                <div class="card-produto">
+                    <div class="foto-produto"><img src="doces.jpg" alt="Doce de Abóbora"></div>
+                    <div class="info-produto">
+                        <h3>Doce de Abóbora</h3>
+                        <p>Pedaço (R$ 22,00)</p>
+                        <p class="preco-produto">R$ 22,00</p>
+                        <button onclick="abrirModal('Doce de Abóbora', 22.00)" class="botao-whatsapp"><i class="fab fa-whatsapp"></i> Pedir</button>
+                    </div>
+                </div>
+                <!-- Doce de Mamão Ralado -->
+                <div class="card-produto">
+                    <div class="foto-produto"><img src="doces.jpg" alt="Doce de Mamão"></div>
+                    <div class="info-produto">
+                        <h3>Doce de Mamão Ralado</h3>
+                        <p>R$ 22,00</p>
+                        <p class="preco-produto">R$ 22,00</p>
+                        <button onclick="abrirModal('Doce de Mamão Ralado', 22.00)" class="botao-whatsapp"><i class="fab fa-whatsapp"></i> Pedir</button>
+                    </div>
+                </div>
+                <!-- Goiabada Cremosa -->
+                <div class="card-produto">
+                    <div class="foto-produto"><img src="doces.jpg" alt="Goiabada"></div>
+                    <div class="info-produto">
+                        <h3>Goiabada Cremosa</h3>
+                        <p>R$ 22,00</p>
+                        <p class="preco-produto">R$ 22,00</p>
+                        <button onclick="abrirModal('Goiabada Cremosa', 22.00)" class="botao-whatsapp"><i class="fab fa-whatsapp"></i> Pedir</button>
+                    </div>
+                </div>
+                <!-- Doce de Leite -->
+                <div class="card-produto">
+                    <div class="foto-produto"><img src="doce-leite.jpg" alt="Doce de Leite"></div>
+                    <div class="info-produto">
+                        <h3>Doce de Leite</h3>
+                        <p>Artesanal, cremoso e irresistível.</p>
+                        <p class="preco-produto">R$ 25,00</p>
+                        <button onclick="abrirModal('Doce de Leite', 25.00)" class="botao-whatsapp"><i class="fab fa-whatsapp"></i> Pedir</button>
+                    </div>
+                </div>
+                <!-- Iogurtes -->
+                <div class="card-produto">
+                    <div class="foto-produto"><img src="loja.jpg" alt="Iogurtes"></div>
+                    <div class="info-produto">
+                        <h3>Iogurtes</h3>
+                        <p>Consulte sabores disponíveis.</p>
+                        <p class="preco-produto">R$ 15,00</p>
+                        <button onclick="abrirModal('Iogurte', 15.00)" class="botao-whatsapp"><i class="fab fa-whatsapp"></i> Pedir</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Seção Turismo e Experiências -->
+    <section id="turismo" class="secao-padrao fundo-palha">
+        <div class="container">
+            <div class="cabecalho-secao">
+                <h2 class="titulo-secao">Viva o Campo</h2>
+                <p>Sábados e domingos — Loja, degustações, visitas guiadas, restaurante, mini-fazendinha e cavalgadas.</p>
+            </div>
+            
+            <div class="grid-duas-colunas" style="align-items: stretch;">
+                <div class="bloco-experiencia">
+                    <img src="cafe-manha.jpg" alt="Café da Manhã Rural" class="foto-real">
+                    <div class="texto-exp">
+                        <h3><i class="fas fa-coffee"></i> Café da Manhã Rural</h3>
+                        <p>Domingos e feriados, das 7h30 às 11h30. Pães de queijo quentinhos, bolos e o melhor café.</p>
+                        <a href="https://wa.me/5518996438262?text=Ol%C3%A1!%20Gostaria%20de%20reservar%20o%20Caf%C3%A9%20da%20Manh%C3%A3.%0A%0A*Nome:*%20%0A*Data:*%20%0A*Quantidade%20de%20Pessoas:*%20" target="_blank" class="botao botao-amarelo mt-20">Reservar</a>
+                    </div>
+                </div>
+                
+                <div class="bloco-experiencia">
+                    <img src="loja.jpg" alt="Loja e Degustação" class="foto-real">
+                    <div class="texto-exp">
+                        <h3><i class="fas fa-store"></i> Loja e Degustação</h3>
+                        <p>Conheça nossa linha completa de 36 produtos artesanais e leve o sabor da fazenda para casa.</p>
+                        <a href="https://wa.me/5518996438262?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20visita.%0A%0A*Nome:*%20%0A*Data:*%20%0A*Quantidade%20de%20Pessoas:*%20" target="_blank" class="botao botao-preto mt-20">Agendar Visita</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Contato -->
+    <section id="contato" class="secao-padrao">
+        <div class="container grid-duas-colunas">
+            <div class="info-contato">
+                <h2 class="titulo-secao">Contato e Entregas</h2>
+                <ul class="lista-contato">
+                    <li>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <a href="https://maps.google.com/?q=-22.413900,-50.614201" target="_blank">Sítio São João, Bairro Água do Sapé – Paraguaçu Paulista/SP</a>
+                    </li>
+                    <li><i class="fas fa-phone"></i> (18) 99643-8262 (Lary) | (18) 99623-2661 (Juliano)</li>
+                    <li><i class="fas fa-envelope"></i> bufalasaojoao@gmail.com</li>
+                    <li><i class="fab fa-instagram"></i> @bufalasaojoao</li>
+                    <li><i class="fas fa-truck"></i> Entregas para Assis, Cândido Mota e Paraguaçu Paulista.</li>
+                </ul>
+                <a href="https://wa.me/5518996438262" target="_blank" class="botao botao-whatsapp mt-20"><i class="fab fa-whatsapp"></i> Falar no WhatsApp</a>
+            </div>
+            <div class="mapa-container">
+                <iframe src="https://maps.google.com/maps?q=-22.413900,-50.614201&t=&z=15&ie=UTF8&iwloc=&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
         </div>
     </section>
 
     <!-- Rodapé -->
-    <footer>
-        <p>&copy; 2024 Búfalas São João</p>
+    <footer class="rodape">
+        <div class="container">
+            <p>&copy; 2024 Búfalas São João. Todos os direitos reservados.</p>
+            <p>www.bufalassaojoao.com.br</p>
+        </div>
     </footer>
 
     <!-- ========================================== -->
     <!-- JANELA DE PEDIDO (MODAL) -->
     <!-- ========================================== -->
-    <div id="modal-pedido" class="modal-fundo">
-        <div class="modal-caixa">
-            <span class="fechar" onclick="fecharPedido()">&times;</span>
-            <h2 id="titulo-modal">Pedido</h2>
-            
+    <div id="modal-pedido" class="modal-overlay">
+        <div class="modal-conteudo">
+            <span class="fechar-modal" onclick="fecharModal()">&times;</span>
+            <h2 id="modal-titulo-produto">Pedido</h2>
             <form id="form-pedido">
                 <input type="hidden" id="produto-nome">
-                <input type="hidden" id="produto-preco">
-
-                <div class="campo">
+                
+                <div class="grupo-input">
                     <label>Seu Nome:</label>
-                    <input type="text" id="nome-cliente" required>
+                    <input type="text" id="cli-nome" required placeholder="Digite seu nome completo">
                 </div>
 
                 <div class="linha-dupla">
-                    <div class="campo">
+                    <div class="grupo-input">
                         <label>Quantidade:</label>
-                        <input type="number" id="qtd" value="1" min="1" required oninput="calcular()">
+                        <input type="number" id="cli-quantidade" min="1" value="1" required oninput="calcularTotal()">
                     </div>
-                    <div class="campo">
-                        <label>Frete (R$):</label>
-                        <input type="number" id="frete" value="0.00" step="0.01" min="0" required oninput="calcular()">
+                    <div class="grupo-input">
+                        <label>Valor do Frete (R$):</label>
+                        <input type="number" id="cli-frete" min="0" step="0.01" value="0.00" required oninput="calcularTotal()">
                     </div>
                 </div>
 
-                <div class="resumo">
-                    Total a Pagar: <span id="valor-total">R$ 0,00</span>
+                <div class="resumo-valores">
+                    <p>Subtotal: <span id="mostrar-subtotal">R$ 0,00</span></p>
+                    <h3>Total a Pagar: <span id="mostrar-total">R$ 0,00</span></h3>
                 </div>
 
-                <div class="campo">
-                    <label>Pagamento:</label>
-                    <select id="pagamento">
+                <div class="grupo-input">
+                    <label>Forma de Pagamento:</label>
+                    <select id="cli-pagamento" required>
                         <option value="Pix">Pix</option>
                         <option value="Cartão de Crédito">Cartão de Crédito</option>
                         <option value="Cartão de Débito">Cartão de Débito</option>
@@ -250,67 +411,71 @@
                     </select>
                 </div>
 
-                <div class="campo">
-                    <label>Endereço Completo:</label>
-                    <input type="text" id="endereco" required placeholder="Rua, Número, Bairro, Cidade">
+                <div class="grupo-input">
+                    <label>Endereço de Entrega:</label>
+                    <input type="text" id="cli-endereco" required placeholder="Rua/Avenida, Número, Bairro, Cidade">
                 </div>
 
-                <button type="submit" class="btn-whats" style="margin-top: 15px;"><i class="fab fa-whatsapp"></i> Enviar para o WhatsApp</button>
+                <button type="submit" class="botao botao-whatsapp" style="width: 100%; margin-top: 15px; padding: 15px; font-size: 1.1rem;"><i class="fab fa-whatsapp"></i> Enviar Pedido Calculado</button>
             </form>
         </div>
     </div>
 
-    <!-- JavaScript (Cálculos e WhatsApp) -->
+    <!-- JAVASCRIPT -->
     <script>
-        let precoAtual = 0;
+        let precoUnitario = 0;
 
-        function abrirPedido(nome, preco) {
-            precoAtual = preco;
-            document.getElementById('produto-nome').value = nome;
-            document.getElementById('titulo-modal').innerText = "Pedido: " + nome;
+        function abrirModal(nomeProduto, preco) {
+            precoUnitario = preco;
+            document.getElementById('produto-nome').value = nomeProduto;
+            document.getElementById('modal-titulo-produto').innerText = "Pedido: " + nomeProduto;
             document.getElementById('form-pedido').reset();
-            document.getElementById('qtd').value = 1;
-            document.getElementById('frete').value = "0.00";
-            calcular();
+            document.getElementById('cli-quantidade').value = 1;
+            document.getElementById('cli-frete').value = "0.00";
+            calcularTotal();
             document.getElementById('modal-pedido').style.display = 'flex';
         }
 
-        function fecharPedido() {
+        function fecharModal() {
             document.getElementById('modal-pedido').style.display = 'none';
         }
 
-        function calcular() {
-            let qtd = parseInt(document.getElementById('qtd').value) || 1;
-            let frete = parseFloat(document.getElementById('frete').value) || 0;
-            let total = (precoAtual * qtd) + frete;
-            document.getElementById('valor-total').innerText = total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+        function calcularTotal() {
+            let qtd = parseInt(document.getElementById('cli-quantidade').value) || 1;
+            let frete = parseFloat(document.getElementById('cli-frete').value) || 0;
+            
+            let subtotal = precoUnitario * qtd;
+            let total = subtotal + frete;
+            
+            document.getElementById('mostrar-subtotal').innerText = subtotal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+            document.getElementById('mostrar-total').innerText = total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
         }
 
         document.getElementById('form-pedido').addEventListener('submit', function(e) {
             e.preventDefault();
             
             let produto = document.getElementById('produto-nome').value;
-            let nome = document.getElementById('nome-cliente').value;
-            let qtd = document.getElementById('qtd').value;
-            let frete = parseFloat(document.getElementById('frete').value) || 0;
-            let pagamento = document.getElementById('pagamento').value;
-            let endereco = document.getElementById('endereco').value;
+            let nome = document.getElementById('cli-nome').value;
+            let qtd = document.getElementById('cli-quantidade').value;
+            let frete = parseFloat(document.getElementById('cli-frete').value) || 0;
+            let pagamento = document.getElementById('cli-pagamento').value;
+            let endereco = document.getElementById('cli-endereco').value;
             
-            let subtotal = precoAtual * parseInt(qtd);
+            let subtotal = precoUnitario * parseInt(qtd);
             let total = subtotal + frete;
 
-            let msg = `Olá! Gostaria de fazer um pedido:%0A%0A` +
-                      `*Produto:* ${produto}%0A` +
-                      `*Nome:* ${nome}%0A` +
-                      `*Quantidade:* ${qtd}%0A` +
-                      `*Subtotal:* ${subtotal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}%0A` +
-                      `*Frete:* ${frete.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}%0A` +
-                      `*TOTAL:* ${total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}%0A` +
-                      `*Pagamento:* ${pagamento}%0A%0A` +
-                      `*Endereço:* ${endereco}`;
+            let mensagem = `Olá! Gostaria de fazer um pedido:%0A%0A` +
+                           `*Produto:* ${produto}%0A` +
+                           `*Nome do Cliente:* ${nome}%0A` +
+                           `*Quantidade:* ${qtd}%0A` +
+                           `*Subtotal:* ${subtotal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}%0A` +
+                           `*Frete:* ${frete.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}%0A` +
+                           `*TOTAL A PAGAR:* ${total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}%0A` +
+                           `*Forma de Pagamento:* ${pagamento}%0A%0A` +
+                           `*Endereço de Entrega:*%0A${endereco}`;
 
-            window.open(`https://wa.me/5518996438262?text=${msg}`, '_blank');
-            fecharPedido();
+            window.open(`https://wa.me/5518996438262?text=${mensagem}`, '_blank');
+            fecharModal();
         });
     </script>
 </body>
