@@ -4,20 +4,141 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Búfalas São João | Queijos Artesanais e Turismo Rural</title>
+    
+    <!-- Fontes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- Ícones -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+
+    <!-- CSS EMBUTIDO (Garante que a página não fique sem cor) -->
+    <style>
+        /* RESET E CORES */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --amarelo: #F2D027;
+            --palha: #EFE8D8;
+            --palha-escura: #DFD5C1;
+            --preto: #1A1A1A;
+            --texto: #333333;
+            --branco: #FFFFFF;
+            --whatsapp: #25D366;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--texto);
+            background-color: var(--branco);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--preto); font-weight: 700; }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        /* UTILITÁRIOS */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; width: 100%; }
+        .secao-padrao { padding: 80px 0; }
+        .fundo-palha { background-color: var(--palha); }
+        .fundo-amarelo { background-color: var(--amarelo); }
+        .text-center { text-align: center; }
+        .mt-20 { margin-top: 20px; display: inline-block; }
+        .titulo-secao { font-size: 2.5rem; margin-bottom: 15px; }
+        .cabecalho-secao { text-align: center; margin-bottom: 50px; }
+        .cabecalho-secao p { font-size: 1.1rem; color: #555; }
+
+        /* BOTÕES */
+        .botao { display: inline-block; padding: 12px 30px; border-radius: 50px; font-weight: 600; transition: all 0.3s ease; text-align: center; cursor: pointer; border: none; }
+        .botao-amarelo { background-color: var(--amarelo); color: var(--preto); }
+        .botao-amarelo:hover { background-color: #d4b31f; transform: translateY(-2px); }
+        .botao-preto { background-color: var(--preto); color: var(--branco); }
+        .botao-preto:hover { background-color: #333; transform: translateY(-2px); }
+        .botao-whatsapp { background-color: var(--whatsapp); color: var(--branco); display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 10px; border-radius: 8px; font-size: 0.95rem; font-weight: 600; cursor: pointer; border: none; transition: background 0.3s; }
+        .botao-whatsapp:hover { background-color: #128C7E; }
+
+        /* BOTÃO FLUTUANTE */
+        .btn-whatsapp-flutuante { position: fixed; bottom: 30px; right: 30px; background-color: var(--whatsapp); color: var(--branco); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 35px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 1000; transition: transform 0.3s; }
+        .btn-whatsapp-flutuante:hover { transform: scale(1.1); color: var(--branco); }
+
+        /* HEADER */
+        .topo-site { background-color: var(--branco); padding: 15px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 999; }
+        .topo-conteudo { display: flex; justify-content: space-between; align-items: center; }
+        .logo-img { height: 60px; width: auto; border-radius: 5px; }
+        .menu-navegacao { display: flex; gap: 30px; }
+        .menu-navegacao a { font-weight: 600; font-size: 0.95rem; transition: color 0.3s; }
+        .menu-navegacao a:hover { color: #b89b2a; }
+
+        /* CAPA */
+        .capa-principal { background-size: cover; background-position: center; padding: 120px 0; text-align: center; color: var(--branco); }
+        .capa-conteudo h1 { font-size: 4rem; color: var(--branco); margin-bottom: 20px; letter-spacing: 2px; }
+        .capa-conteudo p { font-size: 1.2rem; margin-bottom: 30px; max-width: 700px; margin-left: auto; margin-right: auto; }
+
+        /* GRIDS E IMAGENS */
+        .grid-duas-colunas { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+        .texto-sobre p { margin-bottom: 15px; font-size: 1.05rem; }
+        .selo-premio { display: inline-flex; align-items: center; gap: 15px; background-color: var(--branco); padding: 15px 20px; border-radius: 8px; margin-top: 15px; border-left: 4px solid var(--amarelo); font-weight: 600; }
+        .selo-premio i { color: #D4AF37; font-size: 1.5rem; }
+        .imagem-destaque { height: 400px; }
+        .foto-real { width: 100%; height: 100%; object-fit: cover; border-radius: 12px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+
+        /* CARDS DE PRODUTOS */
+        .grade-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+        .card-produto { background-color: var(--branco); border-radius: 12px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.08); display: flex; flex-direction: column; transition: transform 0.3s; }
+        .card-produto:hover { transform: translateY(-5px); }
+        .foto-produto { width: 100%; height: 200px; overflow: hidden; }
+        .foto-produto img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
+        .card-produto:hover .foto-produto img { transform: scale(1.05); }
+        .info-produto { padding: 20px; text-align: center; display: flex; flex-direction: column; flex-grow: 1; }
+        .info-produto h3 { font-size: 1.3rem; margin-bottom: 5px; }
+        .info-produto p { font-size: 0.9rem; color: #666; margin-bottom: 15px; flex-grow: 1; }
+        .preco-produto { font-size: 1.2rem; font-weight: 700; color: var(--preto); margin-bottom: 15px; }
+
+        /* CONTATO */
+        .lista-contato li { display: flex; align-items: flex-start; gap: 15px; margin-bottom: 15px; font-size: 1.05rem; font-weight: 500; }
+        .lista-contato i { color: var(--preto); font-size: 1.2rem; margin-top: 4px; }
+        .mapa-container { border-radius: 12px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.1); height: 100%; }
+
+        /* RODAPÉ */
+        .rodape { background-color: var(--preto); color: var(--palha); text-align: center; padding: 25px 0; font-size: 0.9rem; }
+
+        /* MODAL (JANELINHA DE PEDIDO) */
+        .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.6); z-index: 2000; align-items: center; justify-content: center; padding: 20px; }
+        .modal-conteudo { background-color: var(--branco); padding: 30px; border-radius: 12px; width: 100%; max-width: 500px; position: relative; max-height: 90vh; overflow-y: auto; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+        .fechar-modal { position: absolute; top: 15px; right: 20px; font-size: 2rem; cursor: pointer; color: var(--preto); }
+        .modal-conteudo h2 { margin-bottom: 20px; font-size: 1.8rem; text-align: center; border-bottom: 2px solid var(--amarelo); padding-bottom: 10px; }
+        .grupo-input { margin-bottom: 15px; display: flex; flex-direction: column; }
+        .grupo-input label { font-weight: 600; margin-bottom: 5px; font-size: 0.95rem; }
+        .grupo-input input, .grupo-input select { padding: 10px; border: 1px solid #ccc; border-radius: 6px; font-family: 'Poppins', sans-serif; font-size: 1rem; }
+        .linha-dupla { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .resumo-valores { background-color: var(--palha); padding: 15px; border-radius: 8px; margin-bottom: 15px; text-align: right; }
+        .resumo-valores p { font-size: 1rem; margin-bottom: 5px; }
+        .resumo-valores h3 { font-size: 1.4rem; color: var(--preto); }
+        .resumo-valores span { color: var(--whatsapp); font-weight: 700; }
+
+        /* RESPONSIVIDADE (CELULAR) */
+        @media (max-width: 768px) {
+            .topo-conteudo { flex-direction: column; gap: 15px; }
+            .menu-navegacao { flex-wrap: wrap; justify-content: center; gap: 15px; }
+            .capa-conteudo h1 { font-size: 2.5rem; }
+            .capa-principal { padding: 80px 0; }
+            .secao-padrao { padding: 50px 0; }
+            .grid-duas-colunas { grid-template-columns: 1fr; }
+            .btn-whatsapp-flutuante { width: 50px; height: 50px; font-size: 30px; bottom: 20px; right: 20px; }
+            .imagem-destaque { height: 300px; }
+            .linha-dupla { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
 <body>
 
-    <!-- Botão do WhatsApp Flutuante (Geral) -->
     <a href="https://wa.me/5518996438262" target="_blank" class="btn-whatsapp-flutuante" aria-label="Falar no WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- Cabeçalho -->
     <header class="topo-site">
         <div class="container topo-conteudo">
             <a href="#" class="logo-link">
@@ -27,13 +148,11 @@
                 <a href="#sobre">Sobre</a>
                 <a href="#queijos">Queijos</a>
                 <a href="#doces">Doces & Loja</a>
-                <a href="#experiencias">Turismo</a>
                 <a href="#contato">Contato</a>
             </nav>
         </div>
     </header>
 
-    <!-- Capa Principal -->
     <section class="capa-principal" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('queijo-fresco.jpg');">
         <div class="container capa-conteudo">
             <h1>SABORES FEITOS AQUI.</h1>
@@ -42,7 +161,6 @@
         </div>
     </section>
 
-    <!-- Seção Sobre -->
     <section id="sobre" class="secao-padrao fundo-palha">
         <div class="container grid-duas-colunas">
             <div class="texto-sobre">
@@ -55,12 +173,11 @@
                 </div>
             </div>
             <div class="imagem-destaque">
-                <img src="fazenda.jpg" alt="Búfala no campo com arco-íris" class="foto-real">
+                <img src="fazenda.jpg" alt="Búfala no campo" class="foto-real">
             </div>
         </div>
     </section>
 
-    <!-- Seção Queijos -->
     <section id="queijos" class="secao-padrao">
         <div class="container">
             <div class="cabecalho-secao">
@@ -69,84 +186,47 @@
             </div>
             
             <div class="grade-cards">
-                <!-- Queijo Fresco (Exemplo de Preço: 35.00) -->
+                <!-- QUEIJOS (Altere os valores dentro de abrirModal) -->
                 <div class="card-produto">
                     <div class="foto-produto"><img src="queijo-fresco.jpg" alt="Queijo Fresco"></div>
                     <div class="info-produto">
                         <h3>Queijo Fresco</h3>
+                        <p>Macio e leve.</p>
                         <p class="preco-produto">R$ 35,00</p>
-                        <!-- O botão chama a função abrirModal via JavaScript -->
                         <button onclick="abrirModal('Queijo Fresco', 35.00)" class="botao-whatsapp"><i class="fab fa-whatsapp"></i> Pedir</button>
                     </div>
                 </div>
-                <!-- Mozzarella (Exemplo de Preço: 45.00) -->
                 <div class="card-produto">
                     <div class="foto-produto"><img src="mozzarella.jpg" alt="Mozzarella"></div>
                     <div class="info-produto">
                         <h3>Mozzarella</h3>
+                        <p>Elástica e saborosa.</p>
                         <p class="preco-produto">R$ 45,00</p>
                         <button onclick="abrirModal('Mozzarella', 45.00)" class="botao-whatsapp"><i class="fab fa-whatsapp"></i> Pedir</button>
                     </div>
                 </div>
-                <!-- Burrata (Exemplo de Preço: 50.00) -->
                 <div class="card-produto">
                     <div class="foto-produto"><img src="burrata.jpg" alt="Burrata"></div>
                     <div class="info-produto">
                         <h3>Burrata</h3>
+                        <p>Cremosa por dentro.</p>
                         <p class="preco-produto">R$ 50,00</p>
                         <button onclick="abrirModal('Burrata', 50.00)" class="botao-whatsapp"><i class="fab fa-whatsapp"></i> Pedir</button>
                     </div>
                 </div>
-                <!-- Coalho (Exemplo de Preço: 30.00) -->
                 <div class="card-produto">
                     <div class="foto-produto"><img src="tábua-queijos.jpg" alt="Coalho"></div>
                     <div class="info-produto">
                         <h3>Coalho / Coalhada</h3>
+                        <p>Textura firme.</p>
                         <p class="preco-produto">R$ 30,00</p>
-                        <button onclick="abrirModal('Coalho / Coalhada', 30.00)" class="botao-whatsapp"><i class="fab fa-whatsapp"></i> Pedir</button>
-                    </div>
-                </div>
-                <!-- Ricota (Exemplo de Preço: 28.00) -->
-                <div class="card-produto">
-                    <div class="foto-produto"><img src="queijo-fresco.jpg" alt="Ricota"></div>
-                    <div class="info-produto">
-                        <h3>Ricota</h3>
-                        <p class="preco-produto">R$ 28,00</p>
-                        <button onclick="abrirModal('Ricota', 28.00)" class="botao-whatsapp"><i class="fab fa-whatsapp"></i> Pedir</button>
-                    </div>
-                </div>
-                <!-- Parmesão (Exemplo de Preço: 55.00) -->
-                <div class="card-produto">
-                    <div class="foto-produto"><img src="tábua-queijos.jpg" alt="Parmesão"></div>
-                    <div class="info-produto">
-                        <h3>Parmesão</h3>
-                        <p class="preco-produto">R$ 55,00</p>
-                        <button onclick="abrirModal('Parmesão', 55.00)" class="botao-whatsapp"><i class="fab fa-whatsapp"></i> Pedir</button>
-                    </div>
-                </div>
-                <!-- Meia Cura (Exemplo de Preço: 42.00) -->
-                <div class="card-produto">
-                    <div class="foto-produto"><img src="tábua-queijos.jpg" alt="Meia Cura"></div>
-                    <div class="info-produto">
-                        <h3>Meia Cura</h3>
-                        <p class="preco-produto">R$ 42,00</p>
-                        <button onclick="abrirModal('Meia Cura', 42.00)" class="botao-whatsapp"><i class="fab fa-whatsapp"></i> Pedir</button>
-                    </div>
-                </div>
-                <!-- Manteiga (Exemplo de Preço: 25.00) -->
-                <div class="card-produto">
-                    <div class="foto-produto"><img src="cafe-manha.jpg" alt="Manteiga"></div>
-                    <div class="info-produto">
-                        <h3>Manteiga</h3>
-                        <p class="preco-produto">R$ 25,00</p>
-                        <button onclick="abrirModal('Manteiga', 25.00)" class="botao-whatsapp"><i class="fab fa-whatsapp"></i> Pedir</button>
+                        <button onclick="abrirModal('Coalho', 30.00)" class="botao-whatsapp"><i class="fab fa-whatsapp"></i> Pedir</button>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Seção Doces e Loja -->
     <section id="doces" class="secao-padrao fundo-amarelo">
         <div class="container">
             <div class="cabecalho-secao">
@@ -155,60 +235,44 @@
             </div>
 
             <div class="grade-cards">
-                <!-- Doce de Abóbora -->
+                <!-- DOCES (Altere os valores dentro de abrirModal) -->
                 <div class="card-produto">
                     <div class="foto-produto"><img src="doces.jpg" alt="Doce de Abóbora"></div>
                     <div class="info-produto">
                         <h3>Doce de Abóbora</h3>
+                        <p>Pedaço</p>
                         <p class="preco-produto">R$ 22,00</p>
                         <button onclick="abrirModal('Doce de Abóbora', 22.00)" class="botao-whatsapp"><i class="fab fa-whatsapp"></i> Pedir</button>
                     </div>
                 </div>
-                <!-- Doce de Mamão Ralado -->
                 <div class="card-produto">
                     <div class="foto-produto"><img src="doces.jpg" alt="Doce de Mamão"></div>
                     <div class="info-produto">
                         <h3>Doce de Mamão Ralado</h3>
+                        <p>Artesanal</p>
                         <p class="preco-produto">R$ 22,00</p>
-                        <button onclick="abrirModal('Doce de Mamão Ralado', 22.00)" class="botao-whatsapp"><i class="fab fa-whatsapp"></i> Pedir</button>
+                        <button onclick="abrirModal('Doce de Mamão', 22.00)" class="botao-whatsapp"><i class="fab fa-whatsapp"></i> Pedir</button>
                     </div>
                 </div>
-                <!-- Goiabada Cremosa -->
                 <div class="card-produto">
                     <div class="foto-produto"><img src="doces.jpg" alt="Goiabada"></div>
                     <div class="info-produto">
                         <h3>Goiabada Cremosa</h3>
+                        <p>Cremosa</p>
                         <p class="preco-produto">R$ 22,00</p>
                         <button onclick="abrirModal('Goiabada Cremosa', 22.00)" class="botao-whatsapp"><i class="fab fa-whatsapp"></i> Pedir</button>
                     </div>
                 </div>
-                <!-- Doce de Leite -->
                 <div class="card-produto">
                     <div class="foto-produto"><img src="doce-leite.jpg" alt="Doce de Leite"></div>
                     <div class="info-produto">
                         <h3>Doce de Leite</h3>
+                        <p>Irresistível</p>
                         <p class="preco-produto">R$ 25,00</p>
                         <button onclick="abrirModal('Doce de Leite', 25.00)" class="botao-whatsapp"><i class="fab fa-whatsapp"></i> Pedir</button>
                     </div>
                 </div>
-                <!-- Iogurtes -->
-                <div class="card-produto">
-                    <div class="foto-produto"><img src="loja.jpg" alt="Iogurtes e Doces"></div>
-                    <div class="info-produto">
-                        <h3>Iogurtes (Consultar)</h3>
-                        <p class="preco-produto">R$ 15,00</p>
-                        <button onclick="abrirModal('Iogurte', 15.00)" class="botao-whatsapp"><i class="fab fa-whatsapp"></i> Pedir</button>
-                    </div>
-                </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Seção Turismo e Contato (Mantidas como antes para não quebrar o layout) -->
-    <section id="experiencias" class="secao-padrao fundo-palha">
-        <div class="container cabecalho-secao">
-            <h2 class="titulo-secao">Viva o Campo</h2>
-            <p>Sábados e domingos — Loja, degustações, visitas guiadas, restaurante, mini-fazendinha e cavalgadas.</p>
         </div>
     </section>
 
@@ -228,16 +292,13 @@
         </div>
     </section>
 
-    <!-- RODAPÉ -->
     <footer class="rodape">
         <div class="container">
             <p>&copy; 2024 Búfalas São João. Todos os direitos reservados.</p>
         </div>
     </footer>
 
-    <!-- ========================================== -->
-    <!-- JANELA (MODAL) DE PEDIDO OCULTA -->
-    <!-- ========================================== -->
+    <!-- MODAL DE PEDIDO (JANELINHA) -->
     <div id="modal-pedido" class="modal-overlay">
         <div class="modal-conteudo">
             <span class="fechar-modal" onclick="fecharModal()">&times;</span>
@@ -287,7 +348,61 @@
         </div>
     </div>
 
-    <!-- Link para o arquivo JavaScript -->
-    <script src="script.js"></script>
+    <!-- JAVASCRIPT EMBUTIDO (Garante que o cálculo funcione) -->
+    <script>
+        let precoUnitario = 0;
+
+        function abrirModal(nomeProduto, preco) {
+            precoUnitario = preco;
+            document.getElementById('produto-nome').value = nomeProduto;
+            document.getElementById('modal-titulo-produto').innerText = "Pedido: " + nomeProduto;
+            document.getElementById('form-pedido').reset();
+            document.getElementById('cli-quantidade').value = 1;
+            document.getElementById('cli-frete').value = "0.00";
+            calcularTotal();
+            document.getElementById('modal-pedido').style.display = 'flex';
+        }
+
+        function fecharModal() {
+            document.getElementById('modal-pedido').style.display = 'none';
+        }
+
+        function calcularTotal() {
+            let qtd = parseInt(document.getElementById('cli-quantidade').value) || 1;
+            let frete = parseFloat(document.getElementById('cli-frete').value) || 0;
+            let subtotal = precoUnitario * qtd;
+            let total = subtotal + frete;
+            
+            document.getElementById('mostrar-subtotal').innerText = subtotal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+            document.getElementById('mostrar-total').innerText = total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+        }
+
+        document.getElementById('form-pedido').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            let produto = document.getElementById('produto-nome').value;
+            let nome = document.getElementById('cli-nome').value;
+            let qtd = document.getElementById('cli-quantidade').value;
+            let frete = parseFloat(document.getElementById('cli-frete').value) || 0;
+            let pagamento = document.getElementById('cli-pagamento').value;
+            let endereco = document.getElementById('cli-endereco').value;
+            
+            let subtotal = precoUnitario * parseInt(qtd);
+            let total = subtotal + frete;
+
+            let mensagem = `Olá! Gostaria de fazer um pedido:%0A%0A` +
+                           `*Produto:* ${produto}%0A` +
+                           `*Nome do Cliente:* ${nome}%0A` +
+                           `*Quantidade:* ${qtd}%0A` +
+                           `*Subtotal:* ${subtotal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}%0A` +
+                           `*Frete:* ${frete.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}%0A` +
+                           `*TOTAL A PAGAR:* ${total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}%0A` +
+                           `*Forma de Pagamento:* ${pagamento}%0A%0A` +
+                           `*Endereço de Entrega:*%0A${endereco}`;
+
+            window.open(`https://wa.me/5518996438262?text=${mensagem}`, '_blank');
+            fecharModal();
+        });
+    </script>
 </body>
 </html>
